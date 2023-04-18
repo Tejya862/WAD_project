@@ -1,0 +1,25 @@
+{% extends 'users/layout.html' %}
+
+{% block content %}
+<div class="row row-cols-1 row-cols-md-2">
+    {% for post in posts %}
+    <div class="col mb-4">
+      <div class="card">
+        <div class="view overlay">
+          <img class="card-img-top" src="{{ post.image.image.url}}" alt="">
+          <a href="#">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <div class="card-body" style="text-align: center;">
+        <div class="card-title"><h4>{{ current_user.id }}</h4><small class="text-muted">{{ post.date_posted|date:"F d, Y"}}</small></div>
+          <h4 class="card-text">{{post.caption }}</h4>
+          <h4> Drive: {{ post.drive.drive_name }} </h4>
+          <h4> Drive: {{ post.image.url}} </h4>
+          <a href="#" class="btn btn-primary btn-md">Post to Instagram</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
